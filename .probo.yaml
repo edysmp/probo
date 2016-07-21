@@ -2,6 +2,7 @@ steps:
   - plugin: Script
     name: Upgrade PHP
     script: |
+      apt-get update
       apt-get install software-properties-common
       add-apt-repository ppa:ondrej/php -y
       apt-get update
