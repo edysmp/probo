@@ -1,0 +1,9 @@
+steps:
+  - plugin: Script
+    name: Upgrade PHP
+    script:
+      add-apt-repository ppa:ondrej/php -y
+      apt-get update
+      apt-get install php7.0
+      apt-get install php7.0-mysql
+      php -v
