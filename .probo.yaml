@@ -6,6 +6,6 @@ steps:
       apt-get install software-properties-common -y
       LC_ALL=C.UTF-8 add-apt-repository ppa:openjdk-r/ppa -y
       apt-get update
-      apt-get install openjdk-8-jdk -f
-      apt-get install openjdk-8-jre -f
+      apt-get install openjdk-8-jdk -y
+      apt-get install openjdk-8-jre -y
       java -version
