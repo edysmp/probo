@@ -17,4 +17,4 @@ steps:
       sudo cp -a search_api_solr/solr-conf/6.x/. solr-6.1.0/server/collection1/conf/
       chown www-data:www-data -R solr-6.1.0/server/collection1/conf
       ./solr-6.1.0/bin/solr start
-      curl localhost:8983
+      curl localhost:8983/solr
