@@ -10,3 +10,11 @@ steps:
       apt-get install openjdk-8-jre -y
       update-alternatives --set java /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java
       java -version
+  - plugin: Script
+    name: Install solr
+    script: |
+      wget -qO- https://archive.apache.org/dist/lucene/solr/6.1.0/solr-6.1.0.tgz
+      tar xzf solr-6.0.1.tgz solr-6.0.1/bin/install_solr_service.sh --strip-components=2
+      ./install_solr_service.sh solr-6.0.1.tgz
+      service solr status
+      solr -c "/opt/solr/bin/solr create -c collection1 -n data_driven_schema_configs"
