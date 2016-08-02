@@ -5,6 +5,9 @@ steps:
       wget https://archive.apache.org/dist/lucene/solr/6.1.0/solr-6.1.0.tgz
       tar xzf solr-6.1.0.tgz solr-6.1.0/bin/install_solr_service.sh --strip-components=2
       rm -rf /opt/solr
+      mkdir /var/solr
+      useradd solr
+      chmown -R solr:solr /var/solr
       ./install_solr_service.sh solr-6.1.0.tgz
       service solr status
       solr -c "/opt/solr/bin/solr create -c collection1 -n data_driven_schema_configs"
