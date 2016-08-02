@@ -3,14 +3,10 @@ steps:
     name: Upgrade Java
     script: |
       wget https://archive.apache.org/dist/lucene/solr/6.1.0/solr-6.1.0.tgz
-      tar xzf solr-6.1.0.tgz solr-6.1.0/bin/install_solr_service.sh --strip-components=2
-      rm -rf /opt/solr
-      mkdir /var/solr
-      useradd solr
-      chown -R www-data:www-data -R /var/solr
-      ./install_solr_service.sh solr-6.1.0.tgz
-      ls -al /var/solr
-      ls -al /var/solr/logs
-      service solr status
-      solr -c "/opt/solr/bin/solr create -c collection1 -n data_driven_schema_configs"
-      service solr status
+      tar xzf solr-6.1.0.tgz
+      ./solr-6.1.0/bin start
+      mkdir -p solr-6.1.0/server/collection1/conf
+      wget http://ftp.drupal.org/files/projects/search_api_solr-8.x-1.x-dev.tar.gz
+      tar xzf search_api_solr-8.x-1.x-dev.tar.gz
+      sudo cp -a search_api_solr/solr-conf/6.x/. solr-6.1.0/server/collection1/conf/
+      chown www-data:www-data -R solr-6.1.0/server/collection1/conf
