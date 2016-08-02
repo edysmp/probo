@@ -7,7 +7,7 @@ steps:
       rm -rf /opt/solr
       mkdir /var/solr
       useradd solr
-      chmown -R solr:solr /var/solr
+      chown -R solr:solr /var/solr
       ./install_solr_service.sh solr-6.1.0.tgz
       service solr status
       solr -c "/opt/solr/bin/solr create -c collection1 -n data_driven_schema_configs"
